@@ -96,4 +96,8 @@ C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\n
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Index.cshtml.g.cs
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Categorias.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Fornecedores.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\NovoFornecedor.cshtml.g.cs
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\NovaCategoria.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\NovoProduto.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Produtos.cshtml.g.cs

@@ -7,8 +7,10 @@
 <hr/>
 <form class="form-horizontal" asp-action="Salvar" asp-controller="Categorias" method="POST">
     <input type="hidden" asp-for="Id" value="0" />
+    
     <label asp-for="Nome">Nome</label>
-    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome da categoria" /><br/>
-    <span asp-validation-for="Nome"></span>
-    <button class="btn btn-success">Cadastrar</Button>
+    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome da categoria" />
+    <span asp-validation-for="Nome"></span><br/>
+
+    <br/><button class="btn btn-success">Cadastrar</Button>
 </form>
