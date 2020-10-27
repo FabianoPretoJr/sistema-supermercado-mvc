@@ -1,0 +1,14 @@
+@model sistema_supermercado_mvc.DTO.CategoriaDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h3>Nova categoria</h3>
+<hr/>
+<form class="form-horizontal" asp-action="Salvar" asp-controller="Categorias" method="POST">
+    <input type="hidden" asp-for="Id" value="0" />
+    <label asp-for="Nome">Nome</label>
+    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome da categoria" /><br/>
+    <span asp-validation-for="Nome"></span>
+    <button class="btn btn-success">Cadastrar</Button>
+</form>
