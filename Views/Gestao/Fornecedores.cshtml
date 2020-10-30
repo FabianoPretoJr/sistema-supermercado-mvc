@@ -1,3 +1,4 @@
+@model IEnumerable<sistema_supermercado_mvc.Models.Fornecedor> 
 @{
     Layout = "_LayoutAdmin";
 }
@@ -6,3 +7,40 @@
 <hr/>
 <a asp-action="NovoFornecedor" asp-controller="Gestao" class="btn btn-success">Criar nova fornecedor</a>
 <hr/>
+
+<script>
+    $(document).ready( function () {
+        $('#fornecedores').DataTable();
+    } );
+</script>
+
+<table id="fornecedores" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+        <tbody>
+            @foreach (var fornecedores in Model)
+            {
+                <tr>
+                    <td>@fornecedores.Id</td>
+                    <td>@fornecedores.Nome</td>
+                    <td>@fornecedores.Email</td>
+                    <td>@fornecedores.Telefone</td>
+                    <td>
+                        <a class="btn btn-primary" href="/Gestao/EditarFornecedor/@fornecedores.Id">Editar</a> 
+                        <form asp-action="Deletar" asp-controller="Fornecedores" style="display: inline;">
+                            <input type="hidden" name="id" id="id" value="@fornecedores.Id">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+                
+            }
+        </tbody>
+</table>

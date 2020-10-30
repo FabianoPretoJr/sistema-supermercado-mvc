@@ -14432,6 +14432,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Gestao\\EditarFornecedor.cshtml",
+      "TargetPath": "Views\\Gestao\\EditarFornecedor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Gestao\\NovoFornecedor.cshtml",
       "TargetPath": "Views\\Gestao\\NovoFornecedor.cshtml",
       "FileKind": "mvc"
@@ -14459,6 +14464,11 @@
     {
       "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Gestao\\Index.cshtml",
       "TargetPath": "Views\\Gestao\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Gestao\\EditarCategoria.cshtml",
+      "TargetPath": "Views\\Gestao\\EditarCategoria.cshtml",
       "FileKind": "mvc"
     },
     {

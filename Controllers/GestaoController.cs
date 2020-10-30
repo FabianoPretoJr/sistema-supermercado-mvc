@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using sistema_supermercado_mvc.Data;
 using System.Linq;
+using sistema_supermercado_mvc.DTO;
 
 namespace sistema_supermercado_mvc.Controllers
 {
@@ -20,7 +21,8 @@ namespace sistema_supermercado_mvc.Controllers
 
         public IActionResult Categorias()
         {
-            return View();
+            var categorias = database.Categorias.Where(cat => cat.Status == true).ToList();
+            return View(categorias);
         }
 
         public IActionResult NovaCategoria()
@@ -28,14 +30,41 @@ namespace sistema_supermercado_mvc.Controllers
             return View();
         }
 
+        public IActionResult EditarCategoria(int id)
+        {
+            var categoria = database.Categorias.First(cat => cat.Id == id);
+
+            CategoriaDTO categoriaView = new CategoriaDTO();
+
+            categoriaView.Id = categoria.Id;
+            categoriaView.Nome = categoria.Nome;
+
+            return View(categoriaView);
+        }
+
         public IActionResult Fornecedores()
         {
-            return View();
+            var fornecedores = database.Fornecedores.Where(forne => forne.Status == true).ToList();
+            return View(fornecedores);
         }
 
         public IActionResult NovoFornecedor()
         {
             return View();
+        }
+
+        public IActionResult EditarFornecedor(int id)
+        {
+            var fornecedor = database.Fornecedores.First(forne => forne.Id == id);
+
+            FornecedorDTO fornecedorView = new FornecedorDTO();
+
+            fornecedorView.Id = fornecedor.Id;
+            fornecedorView.Nome = fornecedor.Nome;
+            fornecedorView.Email = fornecedor.Email;
+            fornecedorView.Telefone = fornecedor.Telefone;
+
+            return View(fornecedorView);
         }
         
         public IActionResult Produtos()
