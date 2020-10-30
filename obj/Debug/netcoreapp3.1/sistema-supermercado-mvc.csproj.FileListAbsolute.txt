@@ -103,3 +103,4 @@ C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\n
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Produtos.cshtml.g.cs
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\EditarCategoria.cshtml.g.cs
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\EditarFornecedor.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\EditarProduto.cshtml.g.cs

@@ -40,5 +40,41 @@ namespace sistema_supermercado_mvc.Controllers
                 return View("../Gestao/NovoProduto");
             }
         }
+
+        [HttpPost]
+        public IActionResult Atualizar(ProdutoDTO produtoTemporario)
+        {
+            if (ModelState.IsValid)
+            {
+                var produto = database.Produtos.First(p => p.Id == produtoTemporario.Id);
+                produto.Nome = produtoTemporario.Nome;
+                produto.Categoria = database.Categorias.First(cat => cat.Id == produtoTemporario.CategoriaID);
+                produto.Fornecedor = database.Fornecedores.First(forne => forne.Id == produtoTemporario.FornecedorID);
+                produto.PrecoDeCusto = produtoTemporario.PrecoDeCusto;
+                produto.PrecoDeVenda = produtoTemporario.PrecoDeVenda;
+                produto.Medicao = produtoTemporario.Medicao;
+                database.SaveChanges();
+
+                return RedirectToAction("Produtos", "Gestao");
+            }
+            else
+            {
+                return RedirectToAction("Produtos", "Gestao");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Deletar(int id)
+        {
+            if (id > 0)
+            {
+                var produto = database.Produtos.First(p => p.Id == id);
+
+                produto.Status = false;
+                database.SaveChanges();
+            }
+
+            return RedirectToAction("Produtos", "Gestao");
+        }
     }
 }

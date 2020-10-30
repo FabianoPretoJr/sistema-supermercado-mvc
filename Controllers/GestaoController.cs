@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using sistema_supermercado_mvc.Data;
 using System.Linq;
 using sistema_supermercado_mvc.DTO;
+using Microsoft.EntityFrameworkCore;
 
 namespace sistema_supermercado_mvc.Controllers
 {
@@ -69,7 +70,8 @@ namespace sistema_supermercado_mvc.Controllers
         
         public IActionResult Produtos()
         {
-            return View();
+            var produtos = database.Produtos.Include(p => p.Categoria).Include(p => p.Fornecedor).Where(p => p.Status == true).ToList();
+            return View(produtos);
         }
 
         public IActionResult NovoProduto()
@@ -80,6 +82,26 @@ namespace sistema_supermercado_mvc.Controllers
             ViewBag.Fornecedores = database.Fornecedores.ToList();
 
             return View();
+        }
+
+        public IActionResult EditarProduto(int id)
+        {
+            var produto = database.Produtos.Include(p => p.Categoria).Include(p => p.Fornecedor).First(p => p.Id == id);
+
+            ProdutoDTO produtoView = new ProdutoDTO();
+
+            produtoView.Id = produto.Id;
+            produtoView.Nome = produto.Nome;
+            produtoView.PrecoDeCusto = produto.PrecoDeCusto;
+            produtoView.PrecoDeVenda = produto.PrecoDeVenda;
+            produtoView.CategoriaID = produto.Categoria.Id;
+            produtoView.FornecedorID = produto.Fornecedor.Id;
+            produtoView.Medicao = produto.Medicao;
+
+            ViewBag.Categorias = database.Categorias.ToList();
+            ViewBag.Fornecedores = database.Fornecedores.ToList();
+
+            return View(produtoView);
         }
     }
 }

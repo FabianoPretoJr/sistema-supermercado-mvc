@@ -14482,6 +14482,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Gestao\\EditarProduto.cshtml",
+      "TargetPath": "Views\\Gestao\\EditarProduto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"

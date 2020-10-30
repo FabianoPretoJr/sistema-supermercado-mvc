@@ -1,3 +1,4 @@
+@model IEnumerable<sistema_supermercado_mvc.Models.Produto>
 @{
     Layout = "_LayoutAdmin";
 }
@@ -6,3 +7,58 @@
 <hr/>
 <a asp-action="NovoProduto" asp-controller="Gestao" class="btn btn-success">Criar novo produto</a>
 <hr/>
+
+<script>
+    $(document).ready( function () {
+        $('#produtos').DataTable();
+    } );
+</script>
+
+<table id="produtos" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Fornecedor</th>
+            <th>Preço de custo</th>
+            <th>Preço de venda</th>
+            <th>Medição</th>
+        </tr>
+    </thead>
+        <tbody>
+            @foreach (var produtos in Model)
+            {
+                <tr>
+                    <td>@produtos.Id</td>
+                    <td>@produtos.Nome</td>
+                    <td>@produtos.Categoria.Nome</td>
+                    <td>@produtos.Fornecedor.Nome</td>
+                    <td>@produtos.PrecoDeCusto</td>
+                    <td>@produtos.PrecoDeVenda</td>
+                    <td>
+                        @if (@produtos.Medicao == 0)
+                        {
+                            <span>Litro</span>
+                        }
+                        else if (@produtos.Medicao == 1)
+                        {
+                            <span>Kilo</span>
+                        }
+                        else if (@produtos.Medicao == 2)
+                        {
+                            <span>Unidade</span>
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="/Gestao/EditarProduto/@produtos.Id">Editar</a> 
+                        <form asp-action="Deletar" asp-controller="Produtos" style="display: inline;">
+                            <input type="hidden" name="id" id="id" value="@produtos.Id">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+                
+            }
+        </tbody>
+</table>
