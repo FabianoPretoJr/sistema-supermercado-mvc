@@ -4,6 +4,7 @@ using sistema_supermercado_mvc.DTO;
 using sistema_supermercado_mvc.Data;
 using System.Linq;
 using sistema_supermercado_mvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace sistema_supermercado_mvc.Controllers
 {
@@ -75,6 +76,31 @@ namespace sistema_supermercado_mvc.Controllers
             }
 
             return RedirectToAction("Produtos", "Gestao");
+        }
+
+        [HttpPost]
+        public IActionResult Produto(int id)
+        {
+            if (id > 0)
+            {
+                var produto = database.Produtos.Where(p => p.Status == true).Include(p => p.Categoria).Include(p => p.Fornecedor).First(p => p.Id == id);
+
+                if (produto != null)
+                {
+                    Response.StatusCode = 200;
+                    return Json(produto);
+                }
+                else
+                {
+                    Response.StatusCode = 404;
+                    return Json(null);
+                }
+            }
+            else
+            {
+                Response.StatusCode = 404;
+                return Json(null);
+            }
         }
     }
 }
