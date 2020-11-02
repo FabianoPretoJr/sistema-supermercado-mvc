@@ -103,5 +103,35 @@ namespace sistema_supermercado_mvc.Controllers
 
             return View(produtoView);
         }
+
+        public IActionResult Promocoes()
+        {
+            var promocoes = database.Promocoes.Include(p => p.Produto).Where(p => p.Status == true).ToList();
+
+            return View(promocoes);
+        }
+
+        public IActionResult NovaPromocao()
+        {
+            ViewBag.Produtos = database.Produtos.ToList();
+
+            return View();
+        }
+
+        public IActionResult EditarPromocao(int id)
+        {
+            var promocao = database.Promocoes.Include(p => p.Produto).First(p => p.Id == id);
+
+            PromocaoDTO promocaoView = new PromocaoDTO();
+
+            promocaoView.Id = promocao.Id;
+            promocaoView.Nome = promocao.Nome;
+            promocaoView.Porcentagem = promocao.Porcentagem;
+            promocaoView.ProdutoID = promocao.Produto.Id;
+
+            ViewBag.Produtos = database.Produtos.ToList();
+
+            return View(promocaoView);
+        }
     }
 }

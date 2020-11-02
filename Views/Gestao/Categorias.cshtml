@@ -10,7 +10,22 @@
 
 <script>
     $(document).ready( function () {
-        $('#categorias').DataTable();
+        $('#categorias').DataTable({
+            //"info" : false,
+            "language" : {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Desculpe, nada encontrado",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "próximo",
+                    "previous": "Anterior"
+                }
+            }
+        });
     } );
 </script>
 
