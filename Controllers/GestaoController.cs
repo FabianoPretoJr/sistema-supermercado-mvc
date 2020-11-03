@@ -4,6 +4,7 @@ using sistema_supermercado_mvc.Data;
 using System.Linq;
 using sistema_supermercado_mvc.DTO;
 using Microsoft.EntityFrameworkCore;
+using sistema_supermercado_mvc.Models;
 
 namespace sistema_supermercado_mvc.Controllers
 {
@@ -76,10 +77,10 @@ namespace sistema_supermercado_mvc.Controllers
 
         public IActionResult NovoProduto()
         {
-            ViewBag.Categorias = database.Categorias.ToList(); // .Categorias é um nome que vc dá, pode ser qualquer um 
+            ViewBag.Categorias = database.Categorias.Where(c => c.Status == true).ToList(); // .Categorias é um nome que vc dá, pode ser qualquer um 
             // busca todas categorias no banco, salva em uma lista e passa pra ViewBag que vai pro formulário pra virar um select
 
-            ViewBag.Fornecedores = database.Fornecedores.ToList();
+            ViewBag.Fornecedores = database.Fornecedores.Where(f => f.Status == true).ToList();
 
             return View();
         }
@@ -113,7 +114,7 @@ namespace sistema_supermercado_mvc.Controllers
 
         public IActionResult NovaPromocao()
         {
-            ViewBag.Produtos = database.Produtos.ToList();
+            ViewBag.Produtos = database.Produtos.Where(p => p.Status == true).ToList();
 
             return View();
         }
@@ -132,6 +133,33 @@ namespace sistema_supermercado_mvc.Controllers
             ViewBag.Produtos = database.Produtos.ToList();
 
             return View(promocaoView);
+        }
+
+        public IActionResult Estoque()
+        {
+            var estoque = database.Estoques.Include(e => e.Produto).ToList();
+            return View(estoque);
+        }
+
+        public IActionResult NovoEstoque()
+        {
+            ViewBag.Produtos = database.Produtos.Where(p => p.Status == true).ToList();
+            return View();
+        }
+
+        public IActionResult EditarEstoque(int id)
+        {
+            var estoque = database.Estoques.Include(e => e.Produto).First(e => e.Id == id);
+
+            Estoque estoqueView = new Estoque();
+
+            estoqueView.Id = estoque.Id;
+            estoqueView.ProdutoId = estoque.Produto.Id;
+            estoqueView.Quantidade = estoque.Quantidade;
+
+            ViewBag.Produtos = database.Produtos.ToList();
+
+            return View(estoqueView);
         }
     }
 }

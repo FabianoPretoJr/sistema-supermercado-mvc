@@ -1,0 +1,18 @@
+@model sistema_supermercado_mvc.Models.Estoque
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h3>Novo estoque</h3>
+<hr/>
+<form class="form-horizontal" method="POST" asp-controller="Estoque" asp-action="Salvar">
+    <input type="hidden" value="0" asp-for="Id">
+
+    <label asp-for="ProdutoId">Produto</label>
+    <select class="form-control" asp-for="ProdutoId" asp-items='@(new SelectList(@ViewBag.Produtos, "Id", "Nome"))'></select><br/>
+    
+    <label asp-for="Quantidade">Quantidade</label>
+    <input type="number" asp-for="Quantidade" placeholder="100" class="form-control"><br/>
+
+    <button class="btn btn-success">Cadastrar</Button>
+</form>

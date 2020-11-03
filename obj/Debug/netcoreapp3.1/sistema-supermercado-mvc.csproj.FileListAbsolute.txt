@@ -107,3 +107,6 @@ C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\n
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\NovaPromocao.cshtml.g.cs
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Promocoes.cshtml.g.cs
 C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\EditarPromocao.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\Estoque.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\NovoEstoque.cshtml.g.cs
+C:\Users\FOEU\My Private Documents\Projetos\sistema-supermercado-mvc\obj\Debug\netcoreapp3.1\Razor\Views\Gestao\EditarEstoque.cshtml.g.cs
