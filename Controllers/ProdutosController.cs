@@ -5,6 +5,7 @@ using sistema_supermercado_mvc.Data;
 using System.Linq;
 using sistema_supermercado_mvc.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace sistema_supermercado_mvc.Controllers
 {
@@ -25,8 +26,8 @@ namespace sistema_supermercado_mvc.Controllers
                 produto.Nome = produtoTemporario.Nome;
                 produto.Categoria = database.Categorias.First(categoria => categoria.Id == produtoTemporario.CategoriaID);
                 produto.Fornecedor = database.Fornecedores.First(fornecedor => fornecedor.Id == produtoTemporario.FornecedorID);
-                produto.PrecoDeCusto = produtoTemporario.PrecoDeCusto;
-                produto.PrecoDeVenda = produtoTemporario.PrecoDeVenda;
+                produto.PrecoDeCusto = float.Parse(produtoTemporario.PrecoDeCustoString, CultureInfo.InvariantCulture.NumberFormat);
+                produto.PrecoDeVenda = float.Parse(produtoTemporario.PrecoDeVendaString, CultureInfo.InvariantCulture.NumberFormat); // Formata o número pro formato certo
                 produto.Medicao = produtoTemporario.Medicao;
                 produto.Status = true;
                 database.Produtos.Add(produto);
@@ -51,8 +52,8 @@ namespace sistema_supermercado_mvc.Controllers
                 produto.Nome = produtoTemporario.Nome;
                 produto.Categoria = database.Categorias.First(cat => cat.Id == produtoTemporario.CategoriaID);
                 produto.Fornecedor = database.Fornecedores.First(forne => forne.Id == produtoTemporario.FornecedorID);
-                produto.PrecoDeCusto = produtoTemporario.PrecoDeCusto;
-                produto.PrecoDeVenda = produtoTemporario.PrecoDeVenda;
+                produto.PrecoDeCusto = float.Parse(produtoTemporario.PrecoDeCustoString, CultureInfo.InvariantCulture.NumberFormat);
+                produto.PrecoDeVenda = float.Parse(produtoTemporario.PrecoDeVendaString, CultureInfo.InvariantCulture.NumberFormat);
                 produto.Medicao = produtoTemporario.Medicao;
                 database.SaveChanges();
 

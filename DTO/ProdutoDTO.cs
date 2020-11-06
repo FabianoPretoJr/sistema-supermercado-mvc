@@ -21,8 +21,14 @@ namespace sistema_supermercado_mvc.DTO
         [Required(ErrorMessage="Preço de custo do produto é obrigatório!")]
         public float PrecoDeCusto { get; set; }
 
+        [Required(ErrorMessage="Preço de custo do produto é obrigatório!")]
+        public string PrecoDeCustoString { get; set; }
+
         [Required(ErrorMessage="Preço de venda do produto é obrigatório!")]
         public float PrecoDeVenda { get; set; }
+
+        [Required(ErrorMessage="Preço de venda do produto é obrigatório!")]
+        public string PrecoDeVendaString { get; set; }
 
         [Required(ErrorMessage="Medição do produto é obrigatória!")]
         [Range(0, 2, ErrorMessage="Medição inválida!")] // Delimitar os valores que podem ser colocados no campo    
