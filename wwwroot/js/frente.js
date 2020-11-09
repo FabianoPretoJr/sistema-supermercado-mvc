@@ -2,6 +2,7 @@
 // DECLARAÇÃO DE VARIAVEIS
 
 var enderecoProduto = "https://localhost:5001/Produtos/Produto/";
+var enderecoGerarVenda = "https://localhost:5001/Produtos/GerarVenda/";
 var produto;
 var compra = [];
 var __totalvenda__ = 0.0;
@@ -35,7 +36,11 @@ function adicionarNaTabela(p, q) {
     var produtoTemp = {};
     Object.assign(produtoTemp,produto);
 
-    var listaCompras = {produto: produtoTemp, quantidade: q, subtotal: produtoTemp.precoDeVenda * q};
+    var listaCompras = {
+        produto: produtoTemp, 
+        quantidade: parseInt(q), 
+        subtotal: parseFloat(produtoTemp.precoDeVenda * q)
+    };
 
     __totalvenda__ += listaCompras.subtotal;
 
@@ -106,8 +111,7 @@ $("#finalizarVendaBtn").click(function() {
         return;
     }
 
-    var valorPago = $("#valorPago").val();
-    console.log(typeof valorPago);
+    var valorPago = parseFloat($("#valorPago").val());
     if (!isNaN(valorPago)) {
         valorPago = parseFloat(valorPago);
         if (valorPago >= __totalvenda__) {
@@ -117,6 +121,32 @@ $("#finalizarVendaBtn").click(function() {
 
             var troco = valorPago - __totalvenda__;
             $("#troco").val(troco);
+
+            // Processar o array de compra
+            compra.forEach(elemento =>{
+                elemento.produto = parseInt(elemento.produto.id);
+            });
+
+            // Preparar um novo objeto
+            var _venda = {
+                total: parseFloat(__totalvenda__), 
+                troco: parseFloat(troco), 
+                produtos: compra
+            }
+
+            // Enviar dados para o backend
+            $.ajax({
+                type: "POST",
+                url: enderecoGerarVenda,
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(_venda),
+                success: function (data) {
+                    console.log("Dados enviados com sucesso!");
+                    console.log(data);
+                }
+            });
+
         }
         else {
             alert("Valor pago abaixo do total da compra!");
