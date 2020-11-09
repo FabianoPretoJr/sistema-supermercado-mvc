@@ -161,5 +161,17 @@ namespace sistema_supermercado_mvc.Controllers
 
             return View(estoqueView);
         }
+
+        public IActionResult Vendas()
+        {
+            var vendas = database.Vendas.ToList();
+            return View(vendas);
+        }
+
+        [HttpPost]
+        public IActionResult RelatorioDeVendas()
+        {
+            return Ok(database.Vendas.ToList());
+        }
     }
 }

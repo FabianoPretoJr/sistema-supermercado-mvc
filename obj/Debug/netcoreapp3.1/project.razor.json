@@ -14502,6 +14502,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Gestao\\Vendas.cshtml",
+      "TargetPath": "Views\\Gestao\\Vendas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\FOEU\\My Private Documents\\Projetos\\sistema-supermercado-mvc\\Views\\Gestao\\NovaCategoria.cshtml",
       "TargetPath": "Views\\Gestao\\NovaCategoria.cshtml",
       "FileKind": "mvc"

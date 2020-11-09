@@ -1,0 +1,52 @@
+@model IEnumerable<sistema_supermercado_mvc.Models.Venda> 
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<h2>Relátorio de vendas</h2>
+<hr/>
+
+<script>
+    $(document).ready( function () {
+        $('#vendas').DataTable({
+            //"info" : false,
+            "language" : {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "Desculpe, nada encontrado",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "próximo",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    } );
+</script>
+
+<table id="vendas" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Total</th>
+            <th>Valor pago</th>
+            <th>Troco</th>
+        </tr>
+    </thead>
+        <tbody>
+            @foreach (var vendas in Model)
+            {
+                <tr>
+                    <td>@vendas.Id</td>
+                    <td>@vendas.Data</td>
+                    <td>@vendas.Total</td>
+                    <td>@vendas.ValorPago</td>
+                    <td>@vendas.Troco</td>
+                </tr>
+            }
+        </tbody>
+</table>
