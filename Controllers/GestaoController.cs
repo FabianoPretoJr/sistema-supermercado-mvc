@@ -5,9 +5,11 @@ using System.Linq;
 using sistema_supermercado_mvc.DTO;
 using Microsoft.EntityFrameworkCore;
 using sistema_supermercado_mvc.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace sistema_supermercado_mvc.Controllers
 {
+    [Authorize]
     public class GestaoController : Controller
     {
         private readonly ApplicationDbContext database;
